@@ -1,0 +1,20 @@
+using UnityEngine;
+using System.Collections;
+using UnityEngine.Audio;
+using DG.Tweening;
+
+public class AudioMixerController : MonoBehaviour {
+
+	//reference to mixer i want to control
+	public AudioMixer mixer;
+
+	//put public setter fxns for exposed mixer parameters here
+
+	public void setValue(float value){
+		mixer.SetFloat("MyExposedParamName", value);
+	}
+	//DOTween shortcut to tween to new value over time
+	public void tweenToValue(float value, float time){
+		mixer.DOSetFloat("MyExposedParamName", value, time);
+	}
+}
